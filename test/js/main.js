@@ -23,7 +23,6 @@ var audioInput = null,
 var rafID = null;
 var analyserContext = null;
 var canvasWidth, canvasHeight;
-var recIndex = 0;
 
 /* TODO:
 
@@ -47,10 +46,17 @@ function gotBuffers( buffers ) {
     audioRecorder.exportWAV( doneEncoding );
 }
 
-function doneEncoding(blob) {
+function doneEncoding(blob) {  
+    var recIndex = 0;
+    
+    try {
+        var recIndex = parseInt(localStorage.key(localStorage.length - 1).replace("note", "")) + 1;
+    } catch (e) {
+
+    }
+    console.log(recIndex + "");
     Recorder.setupDownload(blob, "skrillax" + recIndex + ".wav");
     localStorage.setItem("note" + recIndex, $("#notes").val());
-    recIndex++;
 }
 
 function toggleRecording( e ) {
