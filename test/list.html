@@ -103,8 +103,7 @@
 </head>
 <body>
     <div id="content" style="text-align:center">
-        <div class="list">
-        </div>
+        <div class="list"></div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -112,6 +111,10 @@
             for (var i = 0; i <= localStorage.length - 1; i++) {
                 $(".list").append(localStorage.getItem(localStorage.key(i)) + " - <a href=\"#\" class=\"replay\" id=\"" + localStorage.key(i).replace("note", "") + "\">Play</a><br />");
             };
+            
+            if ($(".list").html().length === 0) {
+                $(".list").append("You haven't recorded any angry moments yet. Go you! :)<br /><br /><a href=\"index.html\">Home</a>");
+            }
 
             $(".replay").on("click", function () {
                 var audio = new Audio('skrillax' + $(this).attr('id') + '.wav');
