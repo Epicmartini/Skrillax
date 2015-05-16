@@ -92,7 +92,7 @@
       margin-top:50px;
     }
 
-    #content{
+    .content{
         
      background: #00DBB7;
       margin-top: 10px;
@@ -113,7 +113,7 @@
 	</style>
 </head>
 <body>
-    <div id="content" style="text-align:center">
+    <div class="content" id="pnlHome" style="text-align:center">
         <div id="viz">
             <canvas id="analyser" width="1024" height="500"></canvas>
             
@@ -127,5 +127,26 @@
             <a id="save" href="#"><img src="save.svg"></a>
         </div>
     </div>
+    <div class="content" id="pnlList" style="text-align:center;display:none;">
+        <div class="list"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //localStorage.clear();
+            for (var i = 0; i <= localStorage.length - 1; i++) {
+                $(".list").append(localStorage.getItem(localStorage.key(i)) + " - <a href=\"#\" class=\"replay\" id=\"" + localStorage.key(i).replace("note", "") + "\">Play</a><br />");
+            };
+
+            if ($(".list").html().length === 0) {
+                $(".list").append("You haven't recorded any angry moments yet. Go you! :)<br /><br /><a href=\"index.html\">Home</a>");
+            }
+
+            $(".replay").on("click", function () {
+                var audio = new Audio('skrillax' + $(this).attr('id') + '.wav');
+                audio.play();
+            });
+        });
+    </script>
 </body>
 </html>

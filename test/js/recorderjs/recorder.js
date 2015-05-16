@@ -111,6 +111,11 @@ DEALINGS IN THE SOFTWARE.
     var link = document.getElementById("save");
     link.href = url;
     link.download = filename || 'output.wav';
+
+    $("#save").on("click", function () {
+        $("#pnlHome").hide();
+        $("#pnlList").show();
+    });
   }
 
   window.Recorder = Recorder;
