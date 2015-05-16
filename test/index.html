@@ -50,10 +50,9 @@
       height: 22vh;
       width: 41vh;
       position: absolute;
-      margin-top: 210px;
       border-radius: 50%;
-      margin-left: -145px;
-      margin-top: 152px;
+      margin-left: -40px;
+      cursor:pointer;
 	}
 	#record.recording { 
 		
@@ -117,8 +116,9 @@
     <div id="content" style="text-align:center">
         <div id="viz">
             <canvas id="analyser" width="1024" height="500"></canvas>
-            <img id="record" src="rec.png" onclick="toggleRecording(this);">
+            
             <br /><br />
+            <img id="record" src="rec.png" onclick="toggleRecording(this);">
             <canvas id="wavedisplay" class="waves" width="1024" height="500"></canvas>
         </div>
         <div id="controls">
