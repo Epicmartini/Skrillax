@@ -117,6 +117,16 @@
             <a id="save" href="#"><img src="save.svg"></a>
         </div>
     </div>
+    <span id="replay">Replay</span>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#replay").on("click", function () {
+            var audio = new Audio('myRecording11.wav');
+            audio.play();
+        });
+    });
+    </script>
+
 </body>
 </html>
 
