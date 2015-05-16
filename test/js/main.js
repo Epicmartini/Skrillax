@@ -54,7 +54,7 @@ function doneEncoding(blob) {
     } catch (e) {
 
     }
-    console.log(recIndex + "");
+
     Recorder.setupDownload(blob, "skrillax" + recIndex + ".wav");
     localStorage.setItem("note" + recIndex, $("#notes").val());
 }
