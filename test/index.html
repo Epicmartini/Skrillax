@@ -4,7 +4,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Audio Recorder</title>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/audiodisplay.js"></script>
 	<script src="js/recorderjs/recorder.js"></script>
 	<script src="js/main.js"></script>
@@ -69,14 +68,5 @@
 		<img id="record" src="img/mic128.png" onclick="toggleRecording(this);">
 		<a id="save" href="#"><img src="img/save.svg"></a>
 	</div>
-    <span id="replay">Replay</span>
 </body>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#replay").on("click", function () {
-            var audio = new Audio('myRecording11.wav');
-            audio.play();
-        });
-    });
-</script>
 </html>
