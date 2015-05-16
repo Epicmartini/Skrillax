@@ -47,8 +47,9 @@ function gotBuffers( buffers ) {
     audioRecorder.exportWAV( doneEncoding );
 }
 
-function doneEncoding( blob ) {
-    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+function doneEncoding(blob) {
+    Recorder.setupDownload(blob, "skrillax" + recIndex + ".wav");
+    localStorage.setItem("note" + recIndex, $("#notes").val());
     recIndex++;
 }
 
@@ -57,7 +58,7 @@ function toggleRecording( e ) {
         // stop recording
         audioRecorder.stop();
         e.classList.remove("recording");
-        audioRecorder.getBuffers( gotBuffers );
+        audioRecorder.getBuffers(gotBuffers);
     } else {
         // start recording
         if (!audioRecorder)
